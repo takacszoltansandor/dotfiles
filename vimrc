@@ -1,3 +1,27 @@
+execute pathogen#infect()
+
+set cindent
+set nowrap
+set ts=4
+set sw=4
+set ttymouse=xterm2
+set mouse=a
+set aw
+set ar
+set ic
+set smartcase
+set nohls
+set ai
+set si
+set is
+set bg=dark
+
+"au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+
 " based on http://github.com/jferris/config_files/blob/master/vimrc
 
 " Use Vim settings, rather then Vi settings (much better!).
