@@ -1,0 +1,10 @@
+--pager=less -r
+--color
+--type-set=template=.tmpl
+--type-set=infile=.in
+--ignore-dir=build
+--ignore-dir=platform
+--ignore-dir=libexec
+--ignore-dir=lib
+--ignore-dir=regress
+--ignore-dir=regress_final
