@@ -229,3 +229,8 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
+se cursorline
+hi CursorLine term=none cterm=none ctermbg=4
+autocmd InsertLeave * hi CursorLine term=none cterm=none ctermbg=4
+autocmd InsertEnter * hi CursorLine term=none cterm=none ctermbg=1 ctermfg=7
+
