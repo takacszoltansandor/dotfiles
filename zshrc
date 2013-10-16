@@ -3313,6 +3313,7 @@ zrclocal
 #@# split functions-search 8
 
 export PATH="/opt/vim74/bin:$PATH"
+export PATH=/usr/pgsql-9.2/bin:$PATH
 
 
 ## END OF FILE #################################################################
