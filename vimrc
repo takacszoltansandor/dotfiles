@@ -232,17 +232,12 @@ let g:fuf_splitPathMatching=1
 
 se cursorline
 
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%r      "read only flag
-set statusline+=%y      "filetype
-set statusline+=%m      "modified flag
-set statusline+=%{fugitive#statusline()}
-set statusline+=xx      "modified flag
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
 
+""""""""""""""""""""""""""""""
+" airline
+" """"""""""""""""""""""""""""""
+let g:airline_theme             = 'airlineish'
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
+
+set laststatus=2
