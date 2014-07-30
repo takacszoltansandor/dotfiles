@@ -106,7 +106,7 @@ endif " has("autocmd")
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
 
 " Always display the status line
 set laststatus=2
@@ -173,6 +173,7 @@ imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
+set list
 
 " Edit routes
 command! Rroutes :e config/routes.rb
@@ -217,20 +218,31 @@ set tags=./tags;
 let g:fuf_splitPathMatching=1
 
 " Open URL
-command -bar -nargs=1 OpenURL :!open <args>
-function! OpenURL()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
-  else
-	  echo "No URI found in line."
-  endif
-endfunction
-map <Leader>w :call OpenURL()<CR>
+"command -bar -nargs=1 OpenURL :!open <args>
+"function! OpenURL()
+"  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+"  echo s:uri
+"  if s:uri != ""
+"	  exec "!open \"" . s:uri . "\""
+"  else
+"	  echo "No URI found in line."
+"  endif
+"endfunction
+"map <Leader>w :call OpenURL()<CR>
 
 se cursorline
-hi CursorLine term=none cterm=none ctermbg=4
-autocmd InsertLeave * hi CursorLine term=none cterm=none ctermbg=4
-autocmd InsertEnter * hi CursorLine term=none cterm=none ctermbg=1 ctermfg=7
+
+set statusline=%t       "tail of the filename
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%m      "modified flag
+set statusline+=%{fugitive#statusline()}
+set statusline+=xx      "modified flag
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
