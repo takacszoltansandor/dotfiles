@@ -236,7 +236,7 @@ se cursorline
 """"""""""""""""""""""""""""""
 " airline
 " """"""""""""""""""""""""""""""
-let g:airline_theme             = 'airlineish'
+let g:airline_theme             = 'wombat'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
