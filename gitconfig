@@ -1,0 +1,84 @@
+[core]
+	autocrlf = input
+
+[receive]
+	; fsckObjects = true ; temporarily commenting this out in case it speeds things up
+	; denyNonFastForwards = true ; this is now controlled by gitolite
+
+[alias]
+	mylog = log @{u}..
+	mydiff = diff --name-only @{u}
+	amend = commit --amend -C HEAD
+	fixup = commit --fixup
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgr = log --graph --pretty=format:'%h - %s (%cd) %an\n%b' --color=never --date=short
+	lgx = log --graph --pretty=format:'%s (%cd) <%an>' --color=never --date=short
+	lgrc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\n%b'
+	files = show --name-only
+	stat = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat
+	cont = rebase --continue
+	diffc = diff --cached
+	sup = submodule update --init --recursive
+	co = checkout
+	ci = commit
+	st = status
+	s = status
+	root = "rev-parse --show-toplevel"
+	chicken = branch -vva --contains=HEAD
+	fall = fetch --all -p
+	pushall = push --recurse-submodules=on-demand 
+
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+
+[apply]
+	whitespace = nowarn
+
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+
+[merge]
+#	tool = diffconflicts
+	tool = vimdiff
+
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
+	prompt = false
+
+[difftool]
+	prompt = false
+
+[push]
+	default = current
+
+[pull]
+	rebase = true
+
+[rebase]
+	autosquash = true
+
+[branch "master"]
+	mergeoptions = --ff
+	; defaults to fast-forward to avoid redundant merge commits (e.g. production->master or caramel/master->master)
+
+[branch "production"]
+	mergeoptions = --no-edit --no-ff
+
+[rerere]
+	enabled = true
+
+
+
+
+[user]
+	name = HEGEDUS Zoltan
+	email = zoltan.hegedus@hinthunt.co.uk
+
+[github]
+	user = h-z
+	token = ca4d50de83f0bae92df5f91d0f7da41ee2c0f77f
