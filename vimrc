@@ -1,5 +1,8 @@
 execute pathogen#infect()
 
+scriptencoding utf-8
+set encoding=utf-8
+
 set cindent
 set nowrap
 set ts=4
@@ -172,8 +175,11 @@ imap <C-F> <C-R>=expand("%")<CR>
 imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
-" set list listchars=tab:»·,trail:·
+set list listchars=tab:»\ ,trail:·
 set list
+hi NonText ctermfg=7 guifg=gray
+hi SpecialKey ctermfg=239 guifg=#4e4e4e
+
 
 " Edit routes
 command! Rroutes :e config/routes.rb
