@@ -8,11 +8,6 @@
 	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
 	token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
 
-
-[core]
-	autocrlf = input
-	excludesfile = /Users/hz/.gitignore_global
-
 [receive]
 	; fsckObjects = true ; temporarily commenting this out in case it speeds things up
 	; denyNonFastForwards = true ; this is now controlled by gitolite
@@ -22,12 +17,12 @@
 	mydiff = diff --name-only @{u}
 	amend = commit --amend -C HEAD
 	fixup = commit --fixup
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%an)%Creset' --abbrev-commit --date=relative
 	lgr = log --graph --pretty=format:'%h - %s (%cd) %an\n%b' --color=never --date=short
-	lgx = log --graph --pretty=format:'%s (%cd) <%an>' --color=never --date=short
-	lgrc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\n%b'
+	lgx = log --graph --pretty=format:'%s (%cd) (%an)' --color=never --date=short
+	lgrc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)(%an)%Creset\n%b'
 	files = show --name-only
-	stat = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat
+	stat = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%an)%Creset' --abbrev-commit --date=relative --stat
 	cont = rebase --continue
 	diffc = diff --cached
 	sup = submodule update --init --recursive
@@ -76,7 +71,7 @@
 
 [branch "master"]
 	mergeoptions = --ff
-	; defaults to fast-forward to avoid redundant merge commits (e.g. production->master or caramel/master->master)
+	; defaults to fast-forward to avoid redundant merge commits (e.g. production->master)
 
 [branch "production"]
 	mergeoptions = --no-edit --no-ff
