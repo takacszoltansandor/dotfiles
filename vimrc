@@ -19,6 +19,9 @@ set si
 set is
 set bg=dark
 
+
+set autowrite
+
 "au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
