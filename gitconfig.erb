@@ -34,6 +34,7 @@
 	chicken = branch -vva --contains=HEAD
 	fall = fetch --all -p
 	pushall = push --recurse-submodules=on-demand 
+	cleanup = "!git branch --merged | grep  -v '\\*\\|master' | xargs -n 1 git branch -d"
 
 [color]
 	ui = true
