@@ -17,7 +17,7 @@
 	mydiff = diff --name-only @{u}
 	amend = commit --amend -C HEAD
 	fixup = commit --fixup
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)(%an)%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%Cgreen %ad %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)(%an)%Creset' --abbrev-commit --date='format:%Y.%m.%d. %H:%M'
 	lgr = log --graph --pretty=format:'%h - %s (%cd) %an\n%b' --color=never --date=short
 	lgx = log --graph --pretty=format:'%s (%cd) (%an)' --color=never --date=short
 	lgrc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)(%an)%Creset\n%b'
